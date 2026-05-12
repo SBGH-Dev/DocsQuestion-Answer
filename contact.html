@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - DocQ&A</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://cdn-icons-png.flaticon.com/32/4712/4712109.png"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        background: linear-gradient(135deg, #10a37f 0%, #065f46 100%);
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 95%;
+        max-width: 1200px;
+        margin: auto;
+        padding-bottom: 50px;
+      }
+
+      .main-header {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 16px 32px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        font-size: 16px;
+        border-radius: 16px;
+        width: 100%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-weight: 800;
+        text-decoration: none;
+        font-size: 24px;
+        color: #065f46;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        font-weight: 600;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #374151;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        background-color: #065f46;
+        color: white;
+      }
+
+      h1 {
+        font-size: 48px;
+        text-align: center;
+        color: white;
+        margin-bottom: 20px;
+        font-weight: 800;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .subtitle {
+        font-size: 22px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 50px;
+        font-weight: 500;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .contact-form {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-form h2 {
+        color: #065f46;
+        font-size: 28px;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-group label {
+        display: block;
+        color: #374151;
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 15px;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 14px 18px;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        font-size: 16px;
+        font-family: inherit;
+        transition: all 0.3s ease;
+        outline: none;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: #10a37f;
+        box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.1);
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, #10a37f 0%, #065f46 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(16, 163, 127, 0.4);
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(16, 163, 127, 0.5);
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .info-card {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      .info-icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      .info-card h3 {
+        color: #065f46;
+        font-size: 22px;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .info-card p {
+        color: #6b7280;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .info-card a {
+        color: #10a37f;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .info-card a:hover {
+        text-decoration: underline;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .social-links a {
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(135deg, #10a37f 0%, #065f46 100%);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 5px 15px rgba(16, 163, 127, 0.4);
+      }
+
+      .faq-section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        margin-bottom: 60px;
+      }
+
+      .faq-section h2 {
+        color: #065f46;
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 40px;
+        font-weight: 800;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid #e5e7eb;
+        padding: 25px 0;
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
+      .faq-question {
+        color: #1f2937;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .faq-answer {
+        color: #6b7280;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .faq-answer a {
+        color: #10a37f;
+        text-decoration: none;
+      }
+
+      .faq-answer a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px 0;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 60px;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .success-message {
+        background: #d1fae5;
+        color: #065f46;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        display: none;
+        font-weight: 600;
+      }
+
+      @media (max-width: 968px) {
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 36px;
+        }
+
+        .faq-section {
+          padding: 30px 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="main-header">
+        <nav class="nav">
+          <a href="index.html" class="logo">📘 DocQ&A</a>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="contact.html" class="active">Contact</a>
+          </div>
+        </nav>
+      </header>
+
+      <h1>Get In Touch</h1>
+      <p class="subtitle">Have questions? We'd love to hear from you.</p>
+
+      <div class="contact-container">
+        <div class="contact-form">
+          <h2>Send us a message</h2>
+          <div class="success-message" id="successMessage">
+            ✓ Message sent successfully! We'll get back to you soon.
+          </div>
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Mark"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="youremail@example.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="How can I help?"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell me more about your question or feedback..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <div class="info-card">
+            <span class="info-icon">📧</span>
+            <h3>Email me</h3>
+            <p>
+              For general inquiries:<br />
+              <a href="mailto:samah.alsabbaghs@gmail.com"
+                >samah.alsabbaghs@gmail.com</a
+              ><br /><br />
+              For support:<br />
+              <a href="mailto:samah.alsabbaghs@gmail.com"
+                >samah.alsabbaghs@gmail.com</a
+              >
+            </p>
+          </div>
+
+          <div class="info-card">
+            <span class="info-icon">👩‍💻</span>
+            <h3>Developer</h3>
+            <p>
+              Built by <strong>Samah Al Sabbagh</strong><br />
+              <a
+                href="https://www.linkedin.com/in/samah-al-sabbagh-629449314/"
+                target="_blank"
+                >LinkedIn Profile</a
+              ><br /><br />
+              Full Stack Developer passionate about AI and productivity tools.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <span class="info-icon">🌐</span>
+            <h3>Connect</h3>
+            <p>Follow me for updates and tips</p>
+            <div class="social-links">
+              <a href="#" title="Twitter">𝕏</a>
+              <a href="#" title="GitHub">⌘</a>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/samah-al-sabbagh-629449314/"
+                title="LinkedIn"
+                >in</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">How do I get an OpenAI API key?</div>
+          <div class="faq-answer">
+            Visit
+            <a href="https://platform.openai.com/api-keys" target="_blank"
+              >platform.openai.com/api-keys</a
+            >
+            and create a free account. Click "Create new secret key" and copy
+            the key (starts with "sk-"). New accounts receive $5 in free
+            credits.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Is my API key secure?</div>
+          <div class="faq-answer">
+            Yes! Your API key is stored only in your browser's localStorage and
+            never sent to our servers. All API calls go directly from your
+            browser to OpenAI. We have no access to your key or your documents.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">How much does it cost to use?</div>
+          <div class="faq-answer">
+            You only pay OpenAI for the API usage. GPT-4o-mini costs
+            approximately $0.005-0.01 per question. A $5 credit balance can
+            handle 500+ questions. There are no fees from us - the app is
+            completely free to use.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">What types of PDFs are supported?</div>
+          <div class="faq-answer">
+            We support all standard PDF files with text content. Scanned PDFs
+            (images) are not supported unless they have OCR text embedded. The
+            app works best with text-based PDFs like research papers, reports,
+            articles, and documents.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Can I use this offline?</div>
+          <div class="faq-answer">
+            No, an internet connection is required to communicate with OpenAI's
+            API. However, your documents are processed locally in your browser
+            and are never uploaded to any server except OpenAI for generating
+            answers.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        © <span id="year"></span> DocQ&A AI. All rights reserved.
+        <br />
+        Built by
+        <a
+          href="https://www.linkedin.com/in/samah-al-sabbagh-629449314/"
+          target="_blank"
+          >Samah Al Sabbagh</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      function handleSubmit(e) {
+        e.preventDefault();
+        document.getElementById("successMessage").style.display = "block";
+        document.getElementById("contactForm").reset();
+
+        setTimeout(() => {
+          document.getElementById("successMessage").style.display = "none";
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
